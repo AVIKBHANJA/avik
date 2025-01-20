@@ -44,10 +44,10 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        'service_vm9juqp', // Replace with your EmailJS service ID
-        'template_srgnyqc', // Replace with your EmailJS template ID
+        'service_vm9juqp', 
+        'template_srgnyqc', 
         templateParams,
-        'jwtr0tVSltzXln76t' // Replace with your EmailJS public key
+        'jwtr0tVSltzXln76t' 
       );
 
       setSubmitStatus('success');
@@ -184,7 +184,7 @@ const Contact = () => {
             <div>
               <input
                 type="tel"
-                placeholder="Your Phone Number"
+                placeholder="Your Phone Number (Optional)"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none"
@@ -195,7 +195,7 @@ const Contact = () => {
             <div>
               <input
                 type="text"
-                placeholder="Your Company Name"
+                placeholder="Your Company Name (Optional)"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 className="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none"
@@ -210,7 +210,7 @@ const Contact = () => {
                 </div>
                 <input
                   type="url"
-                  placeholder="LinkedIn URL"
+                  placeholder="LinkedIn URL (Optional)"
                   value={formData.linkedin}
                   onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
                   className="w-full p-3 pl-12 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none"
@@ -223,7 +223,7 @@ const Contact = () => {
                 </div>
                 <input
                   type="text"
-                  placeholder="GitHub Username"
+                  placeholder="GitHub Username (Optional)"
                   value={formData.github}
                   onChange={(e) => setFormData({ ...formData, github: e.target.value })}
                   className="w-full p-3 pl-12 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none"
@@ -234,7 +234,7 @@ const Contact = () => {
             {/* Message Input */}
             <div>
               <textarea
-                placeholder="Your Message"
+                placeholder="Type Your Message Here"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows="4"
