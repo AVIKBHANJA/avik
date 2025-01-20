@@ -3,12 +3,13 @@ import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import FooterNavigation from '@/components/FooterNavigation';
 import Navbar from '@/components/Navbar';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Professional Portfolio',
-  description: 'Full-stack developer portfolio showcasing projects and skills',
+  description: 'Avik Bhanja , a Full-stack developer portfolio showcasing projects and skills',
 };
 
 export default function RootLayout({ children }) {
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeProvider>
           <Navbar />
+          <SpeedInsights />
           {children}
           <FooterNavigation />
         </ThemeProvider>
