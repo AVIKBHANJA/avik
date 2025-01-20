@@ -107,7 +107,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1Li3zEqs6P-a3KNw7dRuVNZPThxRB3L6X/view?usp=sharing"
                 target="_blank"
                 className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium"
                 onClick={() => setIsOpen(false)}
