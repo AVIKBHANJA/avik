@@ -10,7 +10,8 @@ import FlutterLogo from "../../../public/flutter.webp";
 import TailwindLogo from "../../../public/tailwind.png";
 import BootstrapLogo from "../../../public/Bootstrap.webp";
 import PythonLogo from "../../../public/Python.webp";
-import CppLogo from "../../../public/cpp.png";
+import CppLogo from "../../../public/cpp.webp";
+import CLogo from "../../../public/c.webp";
 import JsLogo from "../../../public/javascript.png";
 import TsLogo from "../../../public/Ts.webp";
 
@@ -20,6 +21,9 @@ import FirebaseLogo from "../../../public/firebase.png";
 import GitLogo from "../../../public/Git.png";
 import PostmanLogo from "../../../public/postman.webp";
 import LinuxLogo from "../../../public/linux.webp";
+import NextLogo from "../../../public/nextjs.webp";
+import JavaLogo from "../../../public/java.webp";
+
 
 
 
@@ -31,7 +35,8 @@ const Skills = () => {
       icon: Layout,
       title: "Frontend Development",
       skills: [
-        { name: "React", icon: ReactLogo },
+        { name: "NextJS", icon: NextLogo },
+        { name: "React/ React Native", icon: ReactLogo },
         { name: "Node", icon: NodeLogo},
         { name: "Flutter", icon: FlutterLogo },
         { name: "Tailwind", icon: TailwindLogo},
@@ -43,6 +48,8 @@ const Skills = () => {
       title: "Programming Languages",
       skills: [
         { name: "Python", icon: PythonLogo },
+        { name: "Java", icon: JavaLogo },
+        { name: "C", icon: CLogo },
         { name: "C++", icon:  CppLogo},
         { name: "JavaScript", icon: JsLogo },
         { name: "TypeScript", icon:  TsLogo}
