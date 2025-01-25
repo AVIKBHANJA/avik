@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import FooterNavigation from "@/components/FooterNavigation";
 import Navbar from "@/components/Navbar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <Navbar />
           {children}
+          <Analytics/>
           <SpeedInsights />
           <FooterNavigation />
         </ThemeProvider>
