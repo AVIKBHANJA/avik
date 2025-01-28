@@ -4,6 +4,8 @@ import { Github, ExternalLink, Code, ChevronRight } from 'lucide-react';
 import Img1 from "../../../public/socialPostGen.png";
 import Img2 from "../../../public/tictactoe.png";
 import Img3 from "../../../public/investmentcalculator.png";
+import Img4 from "../../../public/avik-sblog.png";
+
 import Image from 'next/image';
 const Projects = () => {
   const projects = [
@@ -14,6 +16,15 @@ const Projects = () => {
       image: Img1,
       github: "https://github.com/AVIKBHANJA/socialPostGenerator",
       demo: "https://social-post-generator-coral.vercel.app/",
+      category: "Full Stack"
+    },
+    {
+      title: "Avik's Blog",
+      description: "A personal blog built with ReactJS and Tailwind CSS with crud operations and authentication.",
+      technologies: ["ReactJS", "Tailwind CSS", "Firebase", "React-Quill", "MongoDB", "ExpressJS" , "NodeJS" ],
+      image: Img4,
+      github: "https://github.com/AVIKBHANJA/Avik-sBlog",
+      demo: "https://avik-sblog.onrender.com/",
       category: "Full Stack"
     },
     {
