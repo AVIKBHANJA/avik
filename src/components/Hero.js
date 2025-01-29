@@ -97,7 +97,7 @@ const Hero = () => {
             <Image
               src={ProfileImg}
               priority
-              alt="Profile"
+              alt="Avik Bhanja | Full-Stack & Frontend Web Developer in Kolkata"
               width={192}
               height={192}
               className="rounded-full"

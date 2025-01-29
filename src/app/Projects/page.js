@@ -16,7 +16,8 @@ const Projects = () => {
       image: Img1,
       github: "https://github.com/AVIKBHANJA/socialPostGenerator",
       demo: "https://social-post-generator-coral.vercel.app/",
-      category: "Full Stack"
+      category: "Full Stack",
+      alt: "Screenshot of Social Post Generator"
     },
     {
       title: "Avik's Blog",
@@ -25,7 +26,8 @@ const Projects = () => {
       image: Img4,
       github: "https://github.com/AVIKBHANJA/Avik-sBlog",
       demo: "https://avik-sblog.onrender.com/",
-      category: "Full Stack"
+      category: "Full Stack",
+      alt: "Screenshot of Avik's Blog"
     },
     {
       title: "React Tic Tac Toe",
@@ -34,7 +36,8 @@ const Projects = () => {
       image: Img2,
       github: "https://github.com/AVIKBHANJA/React_tic_tac_toe",
       demo: "https://react-tic-tac-toe-mu-orcin.vercel.app/",
-      category: "Frontend"
+      category: "Frontend",
+      alt: "Screenshot of React Tic Tac Toe"
     },
     {
       title: "Investment Calculator",
@@ -43,7 +46,8 @@ const Projects = () => {
       image: Img3,
       github: "https://github.com/AVIKBHANJA/investmentCalculator",
       demo: "https://investment-calculator-ten-inky.vercel.app/",
-      category: "Frontend"
+      category: "Frontend",
+      alt: "Screenshot of Investment Calculator"
     },
   ];
 
