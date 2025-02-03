@@ -91,7 +91,7 @@ const Hero = () => {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="relative w-48 h-48 mx-auto mb-12"
+          className="relative w-48 h-48 mx-auto mb-12 "
         >
           <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 p-1 bg-white dark:bg-gray-800">
             <Image
