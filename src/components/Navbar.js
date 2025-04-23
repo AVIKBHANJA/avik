@@ -13,6 +13,7 @@ const Navbar = () => {
   const navItems = [
     { name: "BlogPost", href: "https://avikbhanja.hashnode.dev/" },
     { name: "Testimonials", href: "/Testimonials" },
+    { name: "Freelance", href: "/Hireme" },
   ];
 
   return (
