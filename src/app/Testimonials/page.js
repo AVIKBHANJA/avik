@@ -5,7 +5,7 @@ import { supabase } from "../../utils/supabase";
 
 export default function Testimonials() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [designation, setDesignation] = useState(""); // Changed from email
   const [testimonial, setTestimonial] = useState("");
   const [company, setCompany] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,15 +71,15 @@ export default function Testimonials() {
 
     try {
       // Insert the testimonial into Supabase
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("testimonials")
-        .insert([{ name, email, testimonial, company, approved: false }]);
+        .insert([{ name, designation, testimonial, company, approved: false }]); // Changed email to designation
 
       if (error) throw error;
 
       // Clear the form
       setName("");
-      setEmail("");
+      setDesignation(""); // Changed from email
       setTestimonial("");
       setCompany("");
       setMessage(
@@ -93,7 +93,7 @@ export default function Testimonials() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, testimonial }),
+          body: JSON.stringify({ name, designation, testimonial }), // Changed email to designation
         });
       } catch (notifyError) {
         console.error("Failed to send notification:", notifyError);
@@ -128,6 +128,9 @@ export default function Testimonials() {
                     <p className="italic text-lg mb-4">"{item.testimonial}"</p>
                     <div className="text-right">
                       <p className="font-bold">{item.name}</p>
+                      {item.designation && (
+                        <p className="text-sm text-gray-400">{item.designation}</p>
+                      )}
                       {item.company && (
                         <p className="text-sm text-gray-400">{item.company}</p>
                       )}
@@ -175,16 +178,17 @@ export default function Testimonials() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block mb-2">
-                  Email
+                <label htmlFor="designation" className="block mb-2">
+                  Designation
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  id="designation"
+                  value={designation}
+                  onChange={(e) => setDesignation(e.target.value)}
                   required
                   className="w-full p-3 bg-gray-800 rounded-md border border-gray-700 focus:border-blue-500 focus:outline-none text-white"
+                  placeholder="e.g. Marketing Director, Software Engineer"
                 />
               </div>
 
