@@ -10,7 +10,11 @@ export async function POST(request) {
     // For example, using a service like SendGrid, Mailgun, or EmailJS
 
     // For now, we'll just log and return a success response
-    console.log("New testimonial received:", { name, designation, testimonial });
+    console.log("New testimonial received:", {
+      name,
+      designation,
+      testimonial,
+    });
 
     return NextResponse.json({
       success: true,
