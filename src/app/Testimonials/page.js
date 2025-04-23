@@ -79,7 +79,7 @@ export default function Testimonials() {
 
       // Clear the form
       setName("");
-      setDesignation(""); // Changed from email
+      setDesignation(""); 
       setTestimonial("");
       setCompany("");
       setMessage(
@@ -93,7 +93,7 @@ export default function Testimonials() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, designation, testimonial }), // Changed email to designation
+          body: JSON.stringify({ name, designation, testimonial }), 
         });
       } catch (notifyError) {
         console.error("Failed to send notification:", notifyError);
