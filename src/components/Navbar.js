@@ -11,7 +11,8 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
-    { name: "BlogPost", href: "/BlogPost" },
+    { name: "BlogPost", href: "https://avikbhanja.hashnode.dev/" },
+    { name: "Testimonials", href: "/Testimonials" },
   ];
 
   return (
@@ -39,9 +40,8 @@ const Navbar = () => {
             {navItems.map((item) => (
               <a
                 key={item.name}
-                // href={item.href}
-                href="https://avikbhanja.hashnode.dev/"
-                target="_blank"
+                href={item.href}
+                target={item.name === "BlogPost" ? "_blank" : ""}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors"
               >
                 {item.name}
@@ -97,9 +97,8 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <a
                   key={item.name}
-                  // href={item.href}
-                  href="https://avikbhanja.hashnode.dev/"
-                  target="_blank"
+                  href={item.href}
+                  target={item.name === "BlogPost" ? "_blank" : ""}
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium"
                   onClick={() => setIsOpen(false)}
                 >
