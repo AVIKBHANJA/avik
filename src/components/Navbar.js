@@ -1,25 +1,9 @@
 "use client";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
-
-// Lazy-load Framer Motion components
-const MotionButton = lazy(() =>
-  import("framer-motion").then((mod) => ({
-    default: mod.motion.button,
-  }))
-);
-const MotionDiv = lazy(() =>
-  import("framer-motion").then((mod) => ({
-    default: mod.motion.div,
-  }))
-);
-
-// Import AnimatePresence only when needed
-const AnimatePresence = lazy(() =>
-  import("framer-motion").then((mod) => mod.AnimatePresence)
-);
+import { MotionButton, MotionDiv, AnimatePresence } from "@/utils/motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

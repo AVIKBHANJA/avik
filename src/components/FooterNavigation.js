@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MotionDiv } from "@/utils/motion";
 import {
   Home,
   Settings,
@@ -108,7 +109,7 @@ const FooterNavigation = () => {
 
   return (
     <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-3xl px-4">
-      <nav
+      <MotionDiv
         ref={navRef}
         className="bg-gray-100/80 dark:bg-gray-900/80 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-gray-300 dark:border-gray-800"
       >
@@ -122,7 +123,7 @@ const FooterNavigation = () => {
             return (
               <li key={item.path} className="relative">
                 {isClient && (
-                  <div
+                  <MotionDiv
                     className={`absolute -top-10 left-1/2 transform -translate-x-1/2 
                       transition-all duration-200 pointer-events-none
                       ${
@@ -137,7 +138,7 @@ const FooterNavigation = () => {
                     >
                       {item.label}
                     </span>
-                  </div>
+                  </MotionDiv>
                 )}
                 <Link
                   href={item.path}
@@ -165,7 +166,7 @@ const FooterNavigation = () => {
             );
           })}
         </ul>
-      </nav>
+      </MotionDiv>
     </div>
   );
 };
