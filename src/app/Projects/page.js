@@ -1,17 +1,12 @@
 "use client";
-import { 
-  MotionDiv, 
-  fadeIn, 
-  slideUp,
-  scale
-} from '@/utils/motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { MotionDiv, fadeIn, slideUp, scale } from "@/utils/motion";
+import { Github, ExternalLink } from "lucide-react";
 import Img1 from "../../../public/socialPostGen.png";
 import Img2 from "../../../public/tictactoe.png";
 import Img3 from "../../../public/investmentcalculator.png";
 import Img4 from "../../../public/avik-sblog.png";
 import { useState, useEffect } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
 const Projects = () => {
   const [isClient, setIsClient] = useState(false);
@@ -23,43 +18,53 @@ const Projects = () => {
   const projects = [
     {
       title: "Social Post Generator",
-      description: "AI-powered tool that generates social media posts, captions, and hashtags for content creators and marketers.",
-      technologies: ["NextJS", "openai/gpt-4o-mini", "Tailwind CSS" ],
+      description:
+        "AI-powered tool that generates social media posts, captions, and hashtags for content creators and marketers.",
+      technologies: ["NextJS", "openai/gpt-4o-mini", "Tailwind CSS"],
       image: Img1,
       github: "https://github.com/AVIKBHANJA/socialPostGenerator",
       demo: "https://social-post-generator-coral.vercel.app/",
       category: "Full Stack",
-      alt: "Screenshot of Social Post Generator"
+      alt: "Screenshot of Social Post Generator",
     },
     {
       title: "Avik's Blog",
-      description: "A personal blog built with ReactJS and Tailwind CSS with crud operations and authentication.",
-      technologies: ["ReactJS", "Tailwind CSS", "Firebase", "React-Quill", "MongoDB", "ExpressJS" , "NodeJS" ],
+      description:
+        "A personal blog built with ReactJS and Tailwind CSS with crud operations and authentication.",
+      technologies: [
+        "ReactJS",
+        "Tailwind CSS",
+        "Firebase",
+        "React-Quill",
+        "MongoDB",
+        "ExpressJS",
+        "NodeJS",
+      ],
       image: Img4,
       github: "https://github.com/AVIKBHANJA/Avik-sBlog",
       demo: "https://avik-sblog.onrender.com/",
       category: "Full Stack",
-      alt: "Screenshot of Avik's Blog"
+      alt: "Screenshot of Avik's Blog",
     },
     {
       title: "React Tic Tac Toe",
       description: "A simple tic-tac-toe game built with ReactJS.",
-      technologies: ["ReactJS", "CSS" ],
+      technologies: ["ReactJS", "CSS"],
       image: Img2,
       github: "https://github.com/AVIKBHANJA/React_tic_tac_toe",
       demo: "https://react-tic-tac-toe-mu-orcin.vercel.app/",
       category: "Frontend",
-      alt: "Screenshot of React Tic Tac Toe"
+      alt: "Screenshot of React Tic Tac Toe",
     },
     {
       title: "Investment Calculator",
       description: "A simple investment calculator built with ReactJS.",
-      technologies: ["ReactJS", "CSS" ],
+      technologies: ["ReactJS", "CSS"],
       image: Img3,
       github: "https://github.com/AVIKBHANJA/investmentCalculator",
       demo: "https://investment-calculator-ten-inky.vercel.app/",
       category: "Frontend",
-      alt: "Screenshot of Investment Calculator"
+      alt: "Screenshot of Investment Calculator",
     },
   ];
 
@@ -86,15 +91,16 @@ const Projects = () => {
   return (
     <section className="py-24 px-4 relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
       {/* Animated background dots */}
-      <div 
-        className="absolute inset-0 opacity-30 dark:opacity-20" 
+      <div
+        className="absolute inset-0 opacity-30 dark:opacity-20"
         style={{
-          backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
-          backgroundSize: '30px 30px'
+          backgroundImage:
+            "radial-gradient(circle, currentColor 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      <MotionDiv 
+      <MotionDiv
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -102,7 +108,7 @@ const Projects = () => {
       >
         {/* Header */}
         <div className="text-center mb-16">
-          <MotionDiv 
+          <MotionDiv
             initial={slideUp.hidden}
             whileInView={slideUp.visible}
             viewport={{ once: true }}
@@ -110,7 +116,7 @@ const Projects = () => {
           >
             Featured Projects
           </MotionDiv>
-          <MotionDiv 
+          <MotionDiv
             initial={scale.hidden}
             whileInView={scale.visible}
             viewport={{ once: true }}
@@ -133,7 +139,10 @@ const Projects = () => {
               className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {/* Project content remains the same */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ padding: "2px" }}
+              >
                 <div className="h-full w-full bg-white dark:bg-gray-800 rounded-2xl" />
               </div>
 
@@ -146,7 +155,7 @@ const Projects = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  
+
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 text-sm bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-white rounded-full font-medium">
@@ -160,7 +169,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                     {project.description}
                   </p>
@@ -184,7 +193,7 @@ const Projects = () => {
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center px-4 py-2 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors"
                     >
-                      <a 
+                      <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"

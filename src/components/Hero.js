@@ -4,15 +4,15 @@ import { Github, Mail, ChevronDown, Linkedin } from "lucide-react";
 import { useState, useEffect, lazy, Suspense } from "react";
 import Image from "next/image";
 import ProfileImg from "../../public/profile.png";
-import { 
-  MotionDiv, 
-  MotionButton, 
-  MotionH1, 
-  MotionP, 
+import {
+  MotionDiv,
+  MotionButton,
+  MotionH1,
+  MotionP,
   MotionA,
   fadeIn,
-  slideUp
-} from '@/utils/motion';
+  slideUp,
+} from "@/utils/motion";
 
 // Simple fallback placeholder for Suspense
 const Placeholder = ({ className }) => <div className={className}></div>;
@@ -90,7 +90,8 @@ const Hero = () => {
             </span>
           </div>
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12 text-lg">
-            Computer Science student passionate about creating innovative web & mobile solutions.
+            Computer Science student passionate about creating innovative web &
+            mobile solutions.
           </p>
           <div className="flex justify-center space-x-6">
             {/* Social icons */}
