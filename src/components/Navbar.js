@@ -3,8 +3,6 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
-import Image from "next/image";
-import ProfileImg from "../../public/profile.png";
 
 // Lazy-load Framer Motion components
 const MotionButton = lazy(() =>
@@ -148,13 +146,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-4 group">
-              {/* Profile Image */}
-              <Image
-                src={ProfileImg}
-                alt="Portfolio"
-                priority
-                className="rounded-full border-4 border-blue-500 group-hover:scale-105 transition-transform duration-300 w-12 h-12"
-              />
+
+            
 
               {/* Text Label */}
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent group-hover:opacity-90">
