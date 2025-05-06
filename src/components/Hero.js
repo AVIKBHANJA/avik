@@ -1,21 +1,10 @@
 "use client";
 
-import { Github, Mail, ChevronDown, Linkedin } from "lucide-react";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { Github, Mail, Linkedin } from "lucide-react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import ProfileImg from "../../public/profile.png";
-import {
-  MotionDiv,
-  MotionButton,
-  MotionH1,
-  MotionP,
-  MotionA,
-  fadeIn,
-  slideUp,
-} from "@/utils/motion";
-
-// Simple fallback placeholder for Suspense
-const Placeholder = ({ className }) => <div className={className}></div>;
+import { MotionDiv, MotionH1, MotionP, MotionA } from "@/utils/motion";
 
 const Hero = () => {
   const [typingText, setTypingText] = useState("");
@@ -58,15 +47,20 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [typingText, textIndex, isDeleting, isClient]);
 
-  const scrollToNextSection = () => {
-    const aboutSection = document.getElementById("about");
-    aboutSection?.scrollIntoView({ behavior: "smooth" });
-  };
-
   // Basic layout without animations for SSR
   if (!isClient) {
     return (
       <section className="min-h-screen relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
+        {/* Background dots - works for both light and dark mode */}
+        <div
+          className="absolute inset-0 opacity-30 dark:opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgb(100, 116, 139) 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+        />
+
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <div className="w-48 h-48 mx-auto mb-12">
             <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 p-1 bg-white dark:bg-gray-800">
@@ -102,199 +96,147 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-100 dark:to-gray-800" />
-      </div>
+    <section className="min-h-screen py-20 px-4 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
+      {/* Animated background dots - Fixed for light and dark themes */}
+      <div
+        className="absolute inset-0 opacity-30 dark:opacity-20"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgb(100, 116, 139) 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
+        }}
+      />
 
-      {/* Animated Circles */}
-      <div className="absolute inset-0 overflow-hidden">
-        <Suspense fallback={null}>
-          {[...Array(3)].map((_, i) => (
+      <MotionDiv
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-4 text-center relative z-10"
+      >
+        {/* Profile Image */}
+        <Suspense fallback={<div className="w-48 h-48 mx-auto mb-12"></div>}>
+          <MotionDiv
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="relative w-48 h-48 mx-auto mb-12 "
+          >
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 p-1 bg-white dark:bg-gray-800">
+              <Image
+                src={ProfileImg}
+                priority
+                alt="Avik Bhanja | Full-Stack & Frontend Web Developer in Kolkata"
+                width={192}
+                height={192}
+                className="rounded-full"
+              />
+            </div>
             <MotionDiv
-              key={i}
-              className="absolute rounded-full bg-blue-500/10 dark:bg-blue-400/10"
-              style={{
-                width: `${(i + 1) * 300}px`,
-                height: `${(i + 1) * 300}px`,
-                top: "50%",
-                left: "50%",
-                x: "-50%",
-                y: "-50%",
-              }}
               animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.2, 0.3],
+                scale: [1, 1.05, 1],
+                opacity: [0.5, 0.8, 0.5],
               }}
               transition={{
-                duration: 4,
+                duration: 2,
                 repeat: Infinity,
-                delay: i * 0.8,
               }}
+              className="absolute -inset-2 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30"
             />
-          ))}
+          </MotionDiv>
         </Suspense>
-      </div>
 
-      <Suspense
-        fallback={
-          <Placeholder className="max-w-7xl mx-auto px-4 text-center relative z-10" />
-        }
-      >
-        <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto px-4 text-center relative z-10"
-        >
-          {/* Profile Image */}
-          <Suspense fallback={<div className="w-48 h-48 mx-auto mb-12"></div>}>
-            <MotionDiv
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="relative w-48 h-48 mx-auto mb-12 "
-            >
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 p-1 bg-white dark:bg-gray-800">
-                <Image
-                  src={ProfileImg}
-                  priority
-                  alt="Avik Bhanja | Full-Stack & Frontend Web Developer in Kolkata"
-                  width={192}
-                  height={192}
-                  className="rounded-full"
-                />
-              </div>
-              <MotionDiv
-                animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-                className="absolute -inset-2 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30"
-              />
-            </MotionDiv>
-          </Suspense>
-
-          {/* Name and Role */}
-          <Suspense
-            fallback={
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-                Avik Bhanja
-              </h1>
-            }
-          >
-            <MotionH1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400"
-            >
+        {/* Name and Role */}
+        <Suspense
+          fallback={
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
               Avik Bhanja
-            </MotionH1>
-          </Suspense>
-
-          <Suspense fallback={<div className="h-8 mb-8"></div>}>
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="h-8 mb-8"
-            >
-              <span className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-                {typingText}
-                <span className="animate-pulse">|</span>
-              </span>
-            </MotionDiv>
-          </Suspense>
-
-          {/* Description */}
-          <Suspense
-            fallback={
-              <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12 text-lg"></p>
-            }
-          >
-            <MotionP
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12 text-lg"
-            >
-              Computer Science student passionate about creating innovative web
-              & mobile solutions.
-            </MotionP>
-          </Suspense>
-
-          {/* Social Links */}
-          <Suspense
-            fallback={<div className="flex justify-center space-x-6"></div>}
-          >
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="flex justify-center space-x-6"
-            >
-              {[
-                {
-                  icon: Github,
-                  href: "https://github.com/AVIKBHANJA",
-                  label: "GitHub",
-                },
-                {
-                  icon: Linkedin,
-                  href: "https://www.linkedin.com/in/avikbhanja/",
-                  label: "LinkedIn",
-                },
-                {
-                  icon: Mail,
-                  href: "mailto:avikbhanja2@gmail.com",
-                  label: "Email",
-                },
-              ].map(({ icon: Icon, href, label }) => (
-                <MotionA
-                  key={label}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300"
-                  aria-label={label}
-                >
-                  <Icon size={24} />
-                </MotionA>
-              ))}
-            </MotionDiv>
-          </Suspense>
-        </MotionDiv>
-      </Suspense>
-
-      {/* Scroll Indicator */}
-      <Suspense fallback={null}>
-        <MotionButton
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [0, 10, 0],
-          }}
-          transition={{
-            delay: 1.5,
-            duration: 1.5,
-            repeat: Infinity,
-          }}
-          onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
-          aria-label="Scroll to next section"
+            </h1>
+          }
         >
-          <ChevronDown size={32} />
-        </MotionButton>
-      </Suspense>
+          <MotionH1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400"
+          >
+            Avik Bhanja
+          </MotionH1>
+        </Suspense>
+
+        <Suspense fallback={<div className="h-8 mb-8"></div>}>
+          <MotionDiv
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="h-8 mb-8"
+          >
+            <span className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+              {typingText}
+              <span className="animate-pulse">|</span>
+            </span>
+          </MotionDiv>
+        </Suspense>
+
+        {/* Description */}
+        <Suspense
+          fallback={
+            <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12 text-lg"></p>
+          }
+        >
+          <MotionP
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12 text-lg"
+          >
+            Computer Science student passionate about creating innovative web &
+            mobile solutions.
+          </MotionP>
+        </Suspense>
+
+        {/* Social Links */}
+        <Suspense
+          fallback={<div className="flex justify-center space-x-6"></div>}
+        >
+          <MotionDiv
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+            className="flex justify-center space-x-6"
+          >
+            {[
+              {
+                icon: Github,
+                href: "https://github.com/AVIKBHANJA",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/avikbhanja/",
+                label: "LinkedIn",
+              },
+              {
+                icon: Mail,
+                href: "mailto:avikbhanja2@gmail.com",
+                label: "Email",
+              },
+            ].map(({ icon: Icon, href, label }) => (
+              <MotionA
+                key={label}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300"
+                aria-label={label}
+              >
+                <Icon size={24} />
+              </MotionA>
+            ))}
+          </MotionDiv>
+        </Suspense>
+      </MotionDiv>
     </section>
   );
 };
