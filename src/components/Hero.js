@@ -50,7 +50,7 @@ const Hero = () => {
   // Basic layout without animations for SSR
   if (!isClient) {
     return (
-      <section className="min-h-screen relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
+      <section className="min-h-screen mb-10 relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
         {/* Background dots - works for both light and dark mode */}
         <div
           className="absolute inset-0 opacity-30 dark:opacity-20"
